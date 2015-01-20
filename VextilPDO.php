@@ -77,8 +77,8 @@ class VextilPDO
 			$inserts[] = ":{$key}";
 		}
 		if ($update) { 
-			foreach ($update as $key => $value) {
-				$updates[] = "{$key} = :{$key}";
+			foreach ($columns as $column) {
+				$updates[] = "{$column} = :{$column}";
 			}
 			$updates = implode(', ', $updates);
 			$update = "ON DUPLICATE KEY UPDATE {$updates}";
